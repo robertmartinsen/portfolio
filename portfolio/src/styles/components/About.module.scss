@@ -1,0 +1,234 @@
+@import "../variables.scss";
+
+.aboutBody {
+  height: auto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutContainer {
+  flex: 1 0 auto;
+}
+
+.slideContainer {
+  width: 50%;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.aboutCol {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide {
+  width: max-content;
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  width: 85%;
+  background-size: cover;
+  position: relative;
+  border-radius: 25px;
+
+  .circleContainer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: flex-end;
+
+    .circle {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        transition: transform 0.5s ease;
+      }
+
+      &:nth-child(1)::before {
+        background-image: url("../../components/assets/pic1.jpg");
+      }
+
+      &:nth-child(2)::before {
+        background-image: url("../../components/assets/pic2.jpg");
+      }
+
+      &:nth-child(3)::before {
+        background-image: url("../../components/assets/pic3.jpg");
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 50%;
+        border: 2px solid $secondary;
+        transition: transform 0.5s ease;
+      }
+    }
+  }
+}
+
+.iconSection {
+  flex-shrink: 0;
+}
+
+.waveContainer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: inline-block;
+}
+
+.wave {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0.2px;
+}
+
+.langContainer {
+  display: flex;
+  justify-content: center;
+  background-color: $primary;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.langIcon {
+  height: 75px;
+  width: 75px;
+  padding: 15px;
+  align-items: center;
+}
+
+.fadeInRight {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fadeInLeft {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media screen and (max-width: 1371px) and (min-width: 1200px) {
+  .slide {
+    width: max-content;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    width: 85%;
+    background-size: cover;
+    background-position: 60%;
+    position: relative;
+    border-radius: 25px;
+  }
+  .h4 {
+    font-size: 18px;
+  }
+
+  .p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 1027px) {
+  .slide {
+    width: max-content;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    width: 85%;
+    background-size: cover;
+    background-position: 40%;
+    position: relative;
+    border-radius: 25px;
+  }
+}
+
+@media screen and (max-width: 1026px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .slideContainer,
+  .aboutCol {
+    width: 100%;
+    opacity: 1;
+    transform: none;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .slideContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .slide {
+    margin-top: 0;
+    height: 400px;
+    width: 400px;
+    display: block;
+    border-radius: 25px;
+    background-position: center;
+  }
+
+  .langContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: $primary;
+    width: 100%;
+  }
+
+  .langIcon {
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+  }
+
+  .h4 {
+    font-size: 16px;
+  }
+
+  .p {
+    font-size: 12px;
+  }
+}

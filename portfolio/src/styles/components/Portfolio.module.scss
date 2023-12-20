@@ -1,0 +1,14 @@
+@import "../variables.scss";
+
+.portfolioBody {
+  height: auto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #051633cd;
+}
+
+.titleContainer {
+  padding-top: 100px;
+  color: white;
+}

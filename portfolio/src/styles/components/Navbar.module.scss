@@ -1,0 +1,161 @@
+@import "../variables.scss";
+
+.navbar {
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+
+  .toggleButton {
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    @media (min-width: 769px) {
+      display: none;
+    }
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .navLinks {
+    display: none;
+    list-style: none;
+    color: white;
+
+    @media (min-width: 769px) {
+      display: flex;
+      justify-content: flex-end;
+
+      .navLink {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        color: #ffffff;
+        margin-left: 20px;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+          color: #ffffff;
+
+          &:before {
+            width: 65%;
+            opacity: 0.75;
+          }
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: $secondary;
+          transition: width 0.3s ease;
+        }
+        &.activeNavLink:before {
+          width: 65%;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: $primary;
+    box-shadow: 10px 5px 5px 10px $secondary;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+
+    .sidebarLogo {
+      font-size: 24px;
+      top: 100%;
+    }
+
+    ul {
+      list-style: none;
+      text-align: center;
+
+      li {
+        margin: 10px 0;
+        padding: 10px;
+
+        .navLink {
+          position: relative;
+          display: inline-block;
+          color: $light;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover,
+          &:focus {
+            color: $light;
+            &:before {
+              width: 65%;
+              opacity: 75%;
+            }
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $secondary;
+            transition: width 0.3s ease;
+          }
+
+          &.activeNavLink:before {
+            width: 65%;
+          }
+        }
+
+        .icon {
+          color: $light;
+          transition: color 0.3s ease;
+
+          &:hover,
+          &:focus {
+            color: $secondary;
+          }
+        }
+      }
+    }
+    .closeButton {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      color: white;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 999;
+    }
+  }
+
+  .show {
+    right: 0;
+  }
+
+  @media (min-width: 769px) {
+    .sidebar {
+      display: none;
+    }
+  }
+}
